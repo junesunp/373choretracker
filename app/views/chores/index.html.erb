@@ -1,0 +1,25 @@
+<h2>Listing chores</h2>
+
+<table>
+  <tr>
+    <th width="125" align="left">Child</th>
+    <th width="200" align="left">Task</th>
+    <th width="75">Due on</th>
+    <th width="125">Completed</th>
+    <th></th>
+  </tr>
+
+<% @chores.each do |chore| %>
+  <tr>
+    <td><%= chore.child.first_name %></td>
+    <td><%= chore.task.name %></td>
+    <td align="center"><%= chore.due_on.strftime('%b %d') %></td>
+    <td align="center"><%= chore.status %></td>
+    <td><%= link_to 'Edit', edit_chore_path(chore) %></td>
+  </tr>
+<% end %>
+</table>
+
+<br>
+
+<%= link_to 'New Chore', new_chore_path %>
